@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Trading Platform</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+       
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+        }
+
+        /* Style the hero section */
+        .hero {
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the other sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .feature {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">StockTrader</div>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/news">Get News</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+<div style="text-align: center; padding-top: 50px;" >
+    <img src="/static/stock-market.png" alt="Stock Market" style="height: 250px; width: 250px; ">
+</div>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            
+            <h1 style="color: black;">Welcome to StockTrader</h1>
+            <p style="color: black;">Your gateway to the world of stock trading.</p>
+            <a href="prediction.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At StockTrader, we are passionate about empowering individuals and businesses to make informed and successful investment decisions in the dynamic world of stock markets. With years of experience and expertise in the financial industry, we have built a platform that combines cutting-edge technology with a user-friendly interface to make stock trading accessible to everyone.
+
+Our mission is simple: to provide you with the tools, knowledge, and support you need to thrive in the complex world of stock trading. Whether you are a seasoned investor or just getting started, we have the resources and features to meet your unique needs.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Real-time Data</h3>
+                <p>Access real-time stock market data to make informed decisions.</p>
+            </div>
+            <div class="feature">
+                <h3> User-Friendly Interface</h3>
+                <p>Our platform is designed for both beginners and experienced traders.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure Transactions</h3>
+                <p>Your financial security is our top priority. We use the latest encryption technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to contact our support team.</p>
+            <a href="mailto:support@stocktrader.com" class="cta-button">Contact Support</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 StockTrader. All rights reserved.</p>
+    </footer>
+</body>
+</html>

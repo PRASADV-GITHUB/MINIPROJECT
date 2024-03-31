@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+
+        .article {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .article h3 {
+            color: #333;
+        }
+
+        .article p {
+            color: #555;
+        }
+
+        .article a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .article a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+
+    <!-- Use an older version of Firebase that doesn't rely on ECMAScript modules -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDfTco8cL3W7whMeM1kKKsdGb3MBybkBOs",
+            authDomain: "miniproject-7c137.firebaseapp.com",
+            databaseURL: "https://miniproject-7c137-default-rtdb.firebaseio.com",
+            projectId: "miniproject-7c137",
+            storageBucket: "miniproject-7c137.appspot.com",
+            messagingSenderId: "480247576532",
+            appId: "1:480247576532:web:c22011976fa92b331f4841"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+
+            document.querySelector('form').addEventListener('submit1', function(event) {
+                event.preventDefault();
+
+                // Get the stock symbol from the input field
+                var stockSymbol = document.getElementById('stock_symbol').value;
+                console.log('Stock Symbol:', stockSymbol);
+
+                // Reference to the "stock_symbols" node
+                var stockSymbolsRef = database.ref('stock_symbols');
+
+                // Use set with a specified key
+                var key = stockSymbol;  // Set the key to the entered stock symbol
+                stockSymbolsRef.child(key).set({ symbol: stockSymbol })
+                    .then(() => {
+                        console.log('Stock symbol stored successfully!');
+                    })
+                    .catch((error) => {
+                        console.error('Error storing stock symbol: ', error);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Stock News</h1>
+
+    <form action="/news" method="post">
+        <label for="stock_symbol">Enter Stock :</label>
+        <input type="text" id="stock_symbol" name="stock_symbol" required>
+        <button type="submit">Get News</button>
+    </form>
+
+    <!-- Assuming 'title', 'description', 'url' are passed as template variables from Flask -->
+    {% for i in range(total) %}
+        <div class="article">
+            <h3>{{ title[i] }}</h3>
+            <p>{{ description[i] }}</p>
+            <a href="{{ url[i] }}" target="_blank">Read more</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

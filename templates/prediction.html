@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Trading Platform - Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply a background color and font to the body */
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Style the header and navigation */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Style the prediction form */
+        .prediction-form {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .prediction-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .prediction-form label {
+            font-size: 1.2rem;
+        }
+
+        .prediction-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .prediction-form button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .prediction-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the prediction results */
+        .prediction-results {
+            background-color: #f7f7f7;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .prediction-results h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Style the footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">StockTrader</div>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="prediction-form">
+        <div class="container">
+            <h2>Stock Price Prediction</h2>
+            <form method="post" action="{{ url_for('prediction') }}">
+                <label for="stock_symbol">Enter Stock Symbol:</label>
+                <input type="text" id="stock_symbol" name="stock_symbol" required>
+                <button type="submit" class="cta-button">Predict</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="prediction-results">
+        <div class="container">
+            <h3>Prediction Results for Tomorrow</h3>
+            <div class="result-box">
+                <p>Start Price (Tomorrow): <span style="color: #007bff;">{{ prediction_data['Start Price (Tomorrow)'] }}</span></p>
+            </div>
+            <div class="result-box">
+                <p>End Price (Tomorrow): <span style="color: #007bff;">{{ prediction_data['End Price (Tomorrow)'] }}</span></p>
+            </div>
+            <div class="result-box">
+                <p>Peak Price (Tomorrow): <span style="color: #007bff;">{{ prediction_data['Peak Price (Tomorrow)'] }}</span></p>
+            </div>
+            <div class="result-box">
+                <p>Lowest Price (Tomorrow): <span style="color: #007bff;">{{ prediction_data['Lowest Price (Tomorrow)'] }}</span></p>
+            </div>    
+            <div class="result-box">
+                <p>Peak Time (Tomorrow): <span style="color: #007bff;">{{ prediction_data['Peak Time (Tomorrow)'] }}</span></p>
+            </div>
+            <div class="result-box">
+                <p>Sentiment Label (Tomorrow): <span style="color: #007bff;">{{ prediction_data['Sentiment Label (Tomorrow)'] }}</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add other sections or content as needed -->
+
+    <footer>
+        <p>&copy; 2023 StockTrader. All rights reserved.</p>
+    </footer>
+</body>
+</html>
